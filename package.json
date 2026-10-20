@@ -2,7 +2,6 @@
   "name": "reelkar",
   "version": "1.0.0",
   "description": "Zero-editing Instagram Reel generator for Indian small business owners",
-  "main": "server.js",
   "type": "module",
   "scripts": {
     "build": "node build.js",
