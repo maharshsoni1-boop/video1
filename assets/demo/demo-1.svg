@@ -1,0 +1,174 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad1" cx="50%" cy="45%" r="65%">
+            <stop offset="0%" stop-color="#3a1424"/>
+            <stop offset="60%" stop-color="#190710"/>
+            <stop offset="100%" stop-color="#090206"/>
+          </radialGradient>
+          <linearGradient id="gold1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff4cc"/>
+            <stop offset="25%" stop-color="#e5b842"/>
+            <stop offset="50%" stop-color="#fdf1a9"/>
+            <stop offset="75%" stop-color="#c99726"/>
+            <stop offset="100%" stop-color="#936d10"/>
+          </linearGradient>
+          <linearGradient id="ruby" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff4d6d"/>
+            <stop offset="40%" stop-color="#c9184a"/>
+            <stop offset="100%" stop-color="#590d22"/>
+          </linearGradient>
+          <radialGradient id="pearl" cx="35%" cy="35%" r="60%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="60%" stop-color="#f0ece1"/>
+            <stop offset="100%" stop-color="#d6ccb8"/>
+          </radialGradient>
+          <filter id="glow1" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="8" result="blur"/>
+            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+          </filter>
+          <filter id="shadow1">
+            <feDropShadow dx="0" dy="18" stdDeviation="15" flood-color="#000000" flood-opacity="0.8"/>
+          </filter>
+        </defs>
+        <rect width="800" height="1000" fill="url(#bgGrad1)"/>
+        <!-- Soft ambient pedestal -->
+        <ellipse cx="400" cy="720" rx="280" ry="100" fill="#13050d" opacity="0.9"/>
+        <ellipse cx="400" cy="700" rx="240" ry="80" fill="#200a16" opacity="0.6"/>
+
+        <!-- Neckform silhouette -->
+        <path d="M 280 280 Q 400 320 520 280 L 580 620 Q 400 680 220 620 Z" fill="#1a0812" opacity="0.85" filter="url(#shadow1)"/>
+
+        <!-- Kundan Choker Arc -->
+        <g filter="url(#shadow1)">
+          <!-- Inner Band -->
+          <path d="M 270 360 Q 400 450 530 360" fill="none" stroke="url(#gold1)" stroke-width="22" stroke-linecap="round"/>
+          <path d="M 260 395 Q 400 495 540 395" fill="none" stroke="url(#gold1)" stroke-width="16" stroke-linecap="round"/>
+
+          <!-- Gem settings across arc -->
+          
+              <g transform="translate(291.6666666666667, 381.99961883371424)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(313.3333333333333, 402.5)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(335, 420.1040764008565)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(356.66666666666663, 433.61215932167727)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(378.33333333333337, 442.1036952345708)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(400, 445)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(421.6666666666667, 442.1036952345708)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(443.3333333333333, 433.61215932167727)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(465, 420.10407640085657)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(486.6666666666667, 402.5)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+              <g transform="translate(508.3333333333333, 381.9996188337143)">
+                <circle cx="0" cy="0" r="16" fill="url(#gold1)" stroke="#805b0d" stroke-width="2"/>
+                <circle cx="0" cy="0" r="11" fill="url(#ruby)"/>
+                <polygon points="0,-10 7,0 0,10 -7,0" fill="#fff" opacity="0.35"/>
+                <!-- Hanging pearl drop -->
+                <line x1="0" y1="16" x2="0" y2="34" stroke="url(#gold1)" stroke-width="3"/>
+                <circle cx="0" cy="40" r="8" fill="url(#pearl)" stroke="#c4b89b" stroke-width="1"/>
+              </g>
+            
+
+          <!-- Central Grand Pendant -->
+          <g transform="translate(400, 480)" filter="url(#glow1)">
+            <polygon points="0,0 45,45 0,90 -45,45" fill="url(#gold1)" stroke="#ffeaa7" stroke-width="2"/>
+            <polygon points="0,15 30,45 0,75 -30,45" fill="url(#ruby)"/>
+            <circle cx="0" cy="45" r="8" fill="#ffffff" opacity="0.85"/>
+            <!-- Tiered hanging pearls -->
+            <line x1="-20" y1="70" x2="-20" y2="95" stroke="url(#gold1)" stroke-width="2.5"/>
+            <circle cx="-20" cy="102" r="7" fill="url(#pearl)"/>
+            <line x1="0" y1="90" x2="0" y2="120" stroke="url(#gold1)" stroke-width="3"/>
+            <circle cx="0" cy="128" r="10" fill="url(#pearl)"/>
+            <line x1="20" y1="70" x2="20" y2="95" stroke="url(#gold1)" stroke-width="2.5"/>
+            <circle cx="20" cy="102" r="7" fill="url(#pearl)"/>
+          </g>
+        </g>
+
+        <!-- Sparkle Highlights -->
+        <g fill="#ffffff" opacity="0.9">
+          <circle cx="340" cy="380" r="3" filter="url(#glow1)"/>
+          <path d="M 400 435 Q 400 445 410 445 Q 400 445 400 455 Q 400 445 390 445 Q 400 445 400 435" fill="#fff" filter="url(#glow1)"/>
+          <path d="M 460 380 Q 460 388 468 388 Q 460 388 460 396 Q 460 388 452 388 Q 460 388 460 380" fill="#fff" filter="url(#glow1)"/>
+        </g>
+
+        <!-- Subtle Label Watermark -->
+        <text x="400" y="880" text-anchor="middle" fill="#d4af37" font-family="'Playfair Display', serif" font-size="28" letter-spacing="4" font-weight="600">ROYAL KUNDAN CHOKER</text>
+        <text x="400" y="915" text-anchor="middle" fill="#aa9260" font-family="'Inter', sans-serif" font-size="14" letter-spacing="2">22K GOLD • FRESHWATER PEARLS</text>
+      </svg>

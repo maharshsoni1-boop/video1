@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ReelKar — 5 Photos to Instagram Reel in 60s</title>
+  <meta name="description" content="Instant Instagram Reel generator for Indian small businesses. Turn 5 product photos into a ready-to-post vertical video with music, captions, and WhatsApp CTA." />
+  <meta name="theme-color" content="#0a0b0f" />
+
+  <!-- Fonts: Playfair Display & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+
+  <!-- App Stylesheets -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/landing.css" />
+  <link rel="stylesheet" href="css/studio.css" />
+  <link rel="stylesheet" href="css/player.css" />
+</head>
+<body>
+
+  <!-- Top Prototype Banner -->
+  <div class="proto-banner">
+    <div class="proto-banner-text">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Working Prototype Demo for Technical Founders</span>
+    </div>
+    <button class="proto-btn" id="openFeedbackBtn">Give Feedback</button>
+  </div>
+
+  <div class="app-container">
+    <!-- Navigation Header -->
+    <header class="app-header">
+      <div class="brand-lockup" id="brandLogo">
+        <div class="brand-icon">
+          <svg class="icon" style="stroke: #000; width: 22px; height: 22px;" viewBox="0 0 24 24">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+        </div>
+        <div class="brand-name">Reel<span>Kar</span></div>
+      </div>
+
+      <div class="header-actions">
+        <div class="status-badge" id="aiStatusBadge">
+          <span class="status-pulse"></span>
+          <span id="aiStatusText">Gemini 2.5 Active</span>
+        </div>
+
+        <button class="telemetry-toggle-btn" id="toggleTelemetryBtn" title="Inspect Real-time Pipeline">
+          <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span>Under the Hood</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- SECTION 1: HERO LANDING -->
+    <section class="hero-section" id="heroSection">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Under 60 Seconds • Zero Editing Skill</span>
+        </div>
+
+        <h1 class="hero-title">
+          Upload 5 photos.<br />
+          Get a reel <span class="highlight">ready to post.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Turn raw product photos into a cinema-grade vertical Instagram Reel with motion, original Indian music, multilingual captions, and your WhatsApp order card.
+        </p>
+
+        <!-- Large Upload Dropzone -->
+        <div class="upload-card" id="dropzone">
+          <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" />
+          <div class="upload-icon-circle">
+            <svg class="icon" style="width: 32px; height: 32px;" viewBox="0 0 24 24">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
+          <div>
+            <div class="upload-title">Drop 3 to 8 product photos here</div>
+            <div class="upload-hint">or tap to choose from your gallery (PNG, JPG, WebP)</div>
+          </div>
+
+          <div class="upload-action-row">
+            <button class="btn btn-secondary btn-sm" id="choosePhotosBtn" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Choose Photos</span>
+            </button>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">or</span>
+            <button class="btn btn-outline-gold btn-sm" id="tryDemoPhotosBtn" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span>Try with Sample Photos</span>
+            </button>
+          </div>
+        </div>
+
+        <div style="font-size: 0.78rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.4rem;">
+          <svg class="icon" style="width: 14px; height: 14px;" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Privacy Guaranteed: Photos are processed in your browser. We never store your inventory photos.</span>
+        </div>
+      </div>
+
+      <!-- Live Looping Phone Preview Mockup -->
+      <div class="hero-visual">
+        <div class="phone-mockup">
+          <div class="phone-notch"></div>
+          <div class="mockup-canvas-wrapper">
+            <canvas id="heroLoopCanvas" width="270" height="480"></canvas>
+            <div class="mockup-overlay-ui">
+              <div class="mockup-header-tag">
+                <svg class="icon" style="width: 12px; height: 12px;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Live Sample Reel</span>
+              </div>
+              <div class="mockup-sidebar-icons">
+                <div class="mockup-sidebar-btn">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                  <span>1.4k</span>
+                </div>
+                <div class="mockup-sidebar-btn">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  <span>84</span>
+                </div>
+                <div class="mockup-sidebar-btn">
+                  <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  <span>Share</span>
+                </div>
+              </div>
+              <div class="mockup-bottom-caption">
+                <div class="mockup-shop-label">SHREE KRISHNA JEWELLERS</div>
+                <div class="mockup-caption-text">Royal Kundan & Pearl Gold Choker ✨ Pure 22K Gold • Tap WhatsApp to order</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Before & After Strip -->
+    <section class="showcase-strip-section">
+      <div class="showcase-header">
+        <h2 class="serif-heading">Raw Inventory Snaps → High-Fashion Video</h2>
+        <p>No tripod, no studio lighting, and zero editing timeline skills needed.</p>
+      </div>
+
+      <div class="before-after-grid">
+        <div class="comparison-card">
+          <span class="card-badge badge-raw">Before: 5 Raw Phone Photos</span>
+          <div class="raw-photos-strip">
+            <img class="raw-photo-thumb" src="assets/demo/demo-1.jpg" alt="Raw 1" />
+            <img class="raw-photo-thumb" src="assets/demo/demo-2.jpg" alt="Raw 2" />
+            <img class="raw-photo-thumb" src="assets/demo/demo-3.jpg" alt="Raw 3" />
+            <img class="raw-photo-thumb" src="assets/demo/demo-4.jpg" alt="Raw 4" />
+            <img class="raw-photo-thumb" src="assets/demo/demo-5.jpg" alt="Raw 5" />
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.75rem;">
+            Static images get skipped in 0.5s on the Reels feed.
+          </p>
+        </div>
+
+        <div class="comparison-arrow">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+
+        <div class="comparison-card highlight-after">
+          <span class="card-badge badge-reel">After: Ready-to-Post Reel</span>
+          <p style="font-size: 0.92rem; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 500;">
+            1080x1920 9:16 Canvas Compositor:
+          </p>
+          <ul style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; padding-left: 1.2rem;">
+            <li>Smart blurred 9:16 background (no ugly black bars)</li>
+            <li>Ken Burns pan and cinematic zoom transitions</li>
+            <li>AI-extracted color-matched price & title badges</li>
+            <li>Original synthesized Indian beat & WhatsApp order outro</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: STUDIO WORKSPACE (Photo Tray & Customization) -->
+    <section class="studio-container" id="studioSection" style="display: none;">
+
+      <!-- Photo Tray -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Photo Tray</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span class="section-counter" id="photoCounter">5 Photos</span>
+            <button class="btn btn-secondary btn-sm" id="addMorePhotosBtn" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span>Add Photos</span>
+            </button>
+          </div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Drag to reorder or use arrows. <strong>The first photo is your hook</strong> — it determines whether viewers stop or scroll past.
+        </p>
+
+        <!-- Photo Grid -->
+        <div class="photo-tray-grid" id="photoTrayGrid">
+          <!-- Dynamically populated via ui.js -->
+        </div>
+
+        <!-- AI Hook Rationale Banner -->
+        <div class="hook-rationale-box" id="hookRationaleBox">
+          <svg class="icon" style="color: var(--gold-primary); flex-shrink: 0;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <div id="hookRationaleText">
+            <strong>Smart Hook:</strong> Kundan Choker placed first because intricate high-contrast sparkle captures viewer attention in the first 1.5 seconds.
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Details Form (Saved to localStorage) -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Shop Details</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">All fields optional • Saved locally</span>
+        </div>
+
+        <div class="quick-details-grid">
+          <div class="form-group">
+            <label class="form-label" for="inputShopName">Shop / Brand Name</label>
+            <input class="form-input" id="inputShopName" type="text" placeholder="e.g. Shree Krishna Jewellers" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inputCity">City</label>
+            <input class="form-input" id="inputCity" type="text" placeholder="e.g. Ahmedabad, Gujarat" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="inputWhatsApp">WhatsApp Number for Orders</label>
+            <input class="form-input" id="inputWhatsApp" type="text" placeholder="e.g. +91 98765 43210" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="selectCategory">Product Category</label>
+            <select class="form-select" id="selectCategory">
+              <option value="jewellery">Jewellery (Gold, Diamond, Silver)</option>
+              <option value="clothing">Saree & Ethnic Clothing</option>
+              <option value="food">Bakery & Food Delights</option>
+              <option value="beauty">Salon & Bridal Makeover</option>
+              <option value="other">Handicraft & Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="selectLanguage">Caption Language</label>
+            <select class="form-select" id="selectLanguage">
+              <option value="en">English (Modern & Converting)</option>
+              <option value="hi">हिंदी (Hindi - Natural & Engaging)</option>
+              <option value="gu">ગુજરાતી (Gujarati - Authentic)</option>
+              <option value="hinglish">Hinglish (Casual & Relatable)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Style Picker (4 Live Presets) -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-title">
+            <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Choose Reel Style</span>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">Each style includes custom motion, fonts & procedural music</span>
+        </div>
+
+        <div class="style-picker-grid" id="stylePickerGrid">
+          <!-- Populated by ui.js -->
+        </div>
+
+        <!-- Festival Mode Toggle -->
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem;">
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--gold-bright); display: flex; align-items: center; gap: 0.5rem;">
+              <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span>Festival Mode (Optional 1-Tap Overlay)</span>
+            </div>
+            <span style="font-size: 0.78rem; color: var(--text-muted);">Adds seasonal theme ribbons</span>
+          </div>
+
+          <div class="festival-row" id="festivalRow">
+            <!-- Populated by ui.js -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Primary Action Bar -->
+      <div class="sticky-action-bar">
+        <div class="action-bar-summary">
+          <div class="action-bar-title" id="actionBarTitle">Ready to generate 15-second reel</div>
+          <div class="action-bar-subtitle" id="actionBarSubtitle">Royal Gold style • Procedural Web Audio • 1080x1920 30fps</div>
+        </div>
+
+        <button class="btn btn-primary btn-lg" id="generateReelBtn" type="button">
+          <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Create My Reel</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- SECTION 3: STEP-BY-STEP PROGRESS MODAL -->
+    <div class="modal-overlay" id="progressModal">
+      <div class="modal-content progress-modal-card">
+        <h2 class="serif-heading progress-header-title">Crafting Your Reel</h2>
+        <p style="font-size: 0.88rem; color: var(--text-secondary);" id="progressSubtext">
+          Running 1080x1920 canvas video compositor in your browser...
+        </p>
+
+        <!-- Miniature Live Canvas Preview -->
+        <div class="progress-preview-mini">
+          <canvas id="renderPreviewCanvas" width="160" height="284"></canvas>
+        </div>
+
+        <!-- Real Step-by-Step Milestones -->
+        <div class="progress-steps-list">
+          <div class="progress-step-item" id="stepAnalyze">
+            <div class="step-icon-indicator">1</div>
+            <span>Analyzing photos with Gemini (items, colors & hook)</span>
+          </div>
+          <div class="progress-step-item" id="stepCaption">
+            <div class="step-icon-indicator">2</div>
+            <span>Writing caption & hashtags in chosen language</span>
+          </div>
+          <div class="progress-step-item" id="stepAudio">
+            <div class="step-icon-indicator">3</div>
+            <span>Synthesizing royalty-free background music</span>
+          </div>
+          <div class="progress-step-item" id="stepRender">
+            <div class="step-icon-indicator">4</div>
+            <span id="stepRenderText">Rendering 1080x1920 frames at 30fps</span>
+          </div>
+        </div>
+
+        <!-- Track & Fill -->
+        <div class="real-progress-track">
+          <div class="real-progress-fill" id="progressFillBar"></div>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;" id="progressPercentText">0% Complete</div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: RESULT SCREEN -->
+    <section class="result-section" id="resultSection" style="display: none;">
+      <!-- 9:16 Video Player -->
+      <div class="video-player-container">
+        <video id="outputVideo" playsinline loop autoplay controls></video>
+        <div class="video-custom-controls">
+          <button class="ctrl-btn" id="videoPlayPauseBtn" title="Play/Pause">
+            <svg class="icon" id="playIconSvg" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          <button class="ctrl-btn" id="videoMuteBtn" title="Mute/Unmute Audio">
+            <svg class="icon" id="muteIconSvg" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Details & Sharing Column -->
+      <div class="result-details-column">
+        <div class="result-header">
+          <h2 class="serif-heading">Your Reel Is Ready!</h2>
+          <p id="resultTelemetrySummary">Generated in 6.4s • 1080x1920 MP4 • 3.2 MB</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="result-actions-grid">
+          <a class="btn btn-primary" id="downloadVideoBtn" download="reelkar-video.mp4">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Video</span>
+          </a>
+
+          <button class="btn btn-whatsapp" id="shareReelBtn" type="button">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            <span>Share to Instagram / WhatsApp</span>
+          </button>
+
+          <button class="btn btn-secondary" id="makeAnotherBtn" type="button">
+            <svg class="icon" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            <span>Make Another Version</span>
+          </button>
+        </div>
+
+        <!-- Ready Caption Box -->
+        <div class="caption-card">
+          <div class="caption-card-header">
+            <div class="caption-card-title">
+              <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Ready-to-Post Caption</span>
+            </div>
+            <button class="btn btn-outline-gold btn-sm" id="copyCaptionBtn" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span id="copyBtnText">Copy Caption</span>
+            </button>
+          </div>
+
+          <textarea class="caption-textarea" id="resultCaptionText" readonly></textarea>
+
+          <div class="hashtags-strip" id="resultHashtagsStrip">
+            <!-- Hashtag pills -->
+          </div>
+        </div>
+
+        <!-- Quick Remake with Different Style -->
+        <div class="remake-card">
+          <div style="font-weight: 600; font-size: 0.95rem; color: var(--text-white);">Try in another style with 1 click:</div>
+          <div class="remake-options" id="remakeOptionsRow">
+            <!-- Buttons injected via ui.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: WHY THIS EXISTS (Honest Founder Mission) -->
+    <section class="why-section">
+      <div class="why-header">
+        <h2 class="serif-heading">Why ReelKar Exists</h2>
+      </div>
+      <div class="why-body">
+        <p>
+          Across India, lakhs of independent jewellery shops, saree boutiques, local bakeries, and bridal salons have gorgeous physical stock. But today, they are losing customers daily to venture-funded brands and social-first sellers who flood Instagram with video content.
+        </p>
+        <p>
+          A shopkeeper has 10 minutes between customer visits. They take photos on their phone, but hiring video editors or learning complex editing apps like CapCut, Premiere, or InShot is out of reach. Most reels go unmade, and valuable inventory sits unseen.
+        </p>
+        <p>
+          <strong>ReelKar is built to level the playing field.</strong> Five photos turn into an aesthetic, moving vertical reel with original sound and culturally natural captions in seconds. Zero editing timelines, zero copyright strikes, and a direct WhatsApp CTA to turn views into immediate sales.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Telemetry Drawer ("Under the Hood") -->
+  <aside class="telemetry-drawer" id="telemetryDrawer">
+    <div class="telemetry-header">
+      <div class="telemetry-title">Pipeline Telemetry</div>
+      <button class="modal-close-btn" id="closeTelemetryBtn">
+        <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="telemetry-metrics-grid">
+      <div class="metric-item">
+        <div class="metric-label">Input Compression</div>
+        <div class="metric-value accent" id="metricCompression">0 KB → 0 KB</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">API Latency</div>
+        <div class="metric-value accent" id="metricApiLatency">0 ms</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">Frames Rendered</div>
+        <div class="metric-value" id="metricFrames">0 @ 30fps</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">Target Resolution</div>
+        <div class="metric-value" id="metricResolution">1080x1920</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">Video Encoder</div>
+        <div class="metric-value" id="metricEncoder" style="font-size: 0.85rem;">video/webm</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">Render Time</div>
+        <div class="metric-value accent" id="metricRenderTime">0.0s</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">Output File Size</div>
+        <div class="metric-value" id="metricOutputSize">0 MB</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-label">Web Audio Engine</div>
+        <div class="metric-value" id="metricAudio">44.1 kHz Procedural</div>
+      </div>
+    </div>
+
+    <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase;">
+      Real-Time Pipeline Execution Log:
+    </div>
+    <div class="telemetry-log-box" id="telemetryLogBox">
+      <div class="telemetry-log-line">[SYSTEM] ReelKar telemetry initialized.</div>
+    </div>
+  </aside>
+
+  <!-- Prototype Feedback Modal -->
+  <div class="modal-overlay" id="feedbackModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="serif-heading" style="font-size: 1.5rem;">Prototype Feedback</h2>
+        <button class="modal-close-btn" id="closeFeedbackBtn">
+          <svg class="icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <form id="feedbackForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div class="form-group">
+          <label class="form-label" for="fbName">Your Name & Role</label>
+          <input class="form-input" id="fbName" type="text" placeholder="e.g. Rahul Mehta (Boutique Owner / Founder)" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="fbBusinessType">Business Type</label>
+          <select class="form-select" id="fbBusinessType">
+            <option value="Jewellery Shop">Jewellery Store</option>
+            <option value="Saree / Boutique">Saree / Clothing Store</option>
+            <option value="Bakery / Cafe">Bakery / Food</option>
+            <option value="Salon / Beauty">Salon / Makeup Artist</option>
+            <option value="Investor / Tech Founder">Investor / Tech Founder</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">How much would you pay per month for this?</label>
+          <select class="form-select" id="fbPrice">
+            <option value="₹499/mo (Starter)">₹499 / month (15 reels)</option>
+            <option value="₹999/mo (Pro Unlimited)">₹999 / month (Unlimited reels)</option>
+            <option value="₹1999/mo (With catalog sync)">₹1,999 / month (WhatsApp catalog sync)</option>
+            <option value="Free only">Only free</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Rating</label>
+          <div class="rating-stars" id="starContainer">
+            <button type="button" class="star-btn selected" data-value="1">★</button>
+            <button type="button" class="star-btn selected" data-value="2">★</button>
+            <button type="button" class="star-btn selected" data-value="3">★</button>
+            <button type="button" class="star-btn selected" data-value="4">★</button>
+            <button type="button" class="star-btn selected" data-value="5">★</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="fbText">What feature would make this 10x better?</label>
+          <textarea class="form-input" id="fbText" rows="3" placeholder="Tell us what you liked or what was missing..."></textarea>
+        </div>
+
+        <button class="btn btn-primary btn-full" type="submit" id="submitFeedbackBtn">Submit Feedback</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Application Entry Script (ES Modules) -->
+  <script type="module" src="js/ui.js"></script>
+
+</body>
+</html>

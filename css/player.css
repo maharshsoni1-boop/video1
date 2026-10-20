@@ -1,0 +1,297 @@
+/**
+ * Player & Results View Styles for ReelKar
+ * 9:16 vertical video player, social sharing actions,
+ * caption copy card, under-the-hood telemetry panel, and feedback modal.
+ */
+
+.result-section {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+
+@media (max-width: 850px) {
+  .result-section {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+/* 9:16 Vertical Video Player */
+.video-player-container {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 9 / 16;
+  background: #000;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--gold-border);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#outputVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-custom-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.video-player-container:hover .video-custom-controls,
+.video-player-container:focus-within .video-custom-controls {
+  opacity: 1;
+}
+
+.ctrl-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background var(--transition-fast);
+}
+
+.ctrl-btn:hover {
+  background: var(--gold-primary);
+  color: #000;
+}
+
+/* Results Content Column */
+.result-details-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.result-header h2 {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--text-white);
+  margin-bottom: 0.35rem;
+}
+
+.result-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Primary Action Buttons */
+.result-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+/* Ready-to-Post Caption Box */
+.caption-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.caption-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.caption-card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.caption-textarea {
+  width: 100%;
+  min-height: 140px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 0.85rem;
+  font-family: inherit;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  resize: vertical;
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.caption-textarea:focus {
+  border-color: var(--gold-primary);
+}
+
+.hashtags-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+}
+
+.hashtag-pill {
+  font-size: 0.78rem;
+  background: var(--bg-card-subtle);
+  color: var(--gold-bright);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Quick Re-render Options */
+.remake-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.remake-options {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+/* Under The Hood Telemetry Drawer */
+.telemetry-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 420px;
+  max-width: 90vw;
+  background: #0d0f17;
+  border-left: 1px solid var(--gold-border);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+  z-index: 1100;
+  padding: 2rem 1.5rem;
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.telemetry-drawer.active {
+  transform: translateX(0);
+}
+
+.telemetry-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.telemetry-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--gold-bright);
+}
+
+.telemetry-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+}
+
+.metric-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+  margin-top: 0.25rem;
+  font-family: monospace;
+}
+
+.metric-value.accent {
+  color: var(--gold-bright);
+}
+
+.telemetry-log-box {
+  background: #05060a;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #a0aec0;
+  flex: 1;
+  min-height: 180px;
+  overflow-y: auto;
+  line-height: 1.4;
+}
+
+.telemetry-log-line {
+  margin-bottom: 0.35rem;
+}
+
+/* Feedback Form Modal Elements */
+.rating-stars {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.star-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #4b5563;
+  transition: color var(--transition-fast);
+}
+
+.star-btn.selected,
+.star-btn:hover {
+  color: #facc15;
+}

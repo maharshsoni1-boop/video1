@@ -1,0 +1,21 @@
+{
+  "name": "reelkar",
+  "version": "1.0.0",
+  "description": "Zero-editing Instagram Reel generator for Indian small business owners",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test-api.js"
+  },
+  "keywords": [
+    "instagram-reels",
+    "video-generator",
+    "canvas",
+    "gemini",
+    "small-business"
+  ],
+  "author": "ReelKar Team",
+  "license": "MIT"
+}
