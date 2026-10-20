@@ -356,8 +356,11 @@ async function pushAnglesToReelMaker() {
   }
 
   if (window.reelkarLoadGeneratedPhotos) {
-    window.reelkarLoadGeneratedPhotos(photosForStudio);
     switchWorkspace('reel');
+    window.reelkarLoadGeneratedPhotos(photosForStudio);
+    setTimeout(() => {
+      document.getElementById('studioSection')?.scrollIntoView({ behavior: 'smooth' });
+    }, 120);
     window.showToast?.('All 5 studio angles loaded into Reel Maker! Customize and render your reel.', 'success');
   } else {
     window.showToast?.('Reel Maker interface not linked.', 'error');
