@@ -1,0 +1,179 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad2" cx="50%" cy="50%" r="65%">
+            <stop offset="0%" stop-color="#143438"/>
+            <stop offset="60%" stop-color="#0a1d20"/>
+            <stop offset="100%" stop-color="#040b0d"/>
+          </radialGradient>
+          <linearGradient id="gold2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fff8db"/>
+            <stop offset="30%" stop-color="#e8bf53"/>
+            <stop offset="70%" stop-color="#c4972f"/>
+            <stop offset="100%" stop-color="#8c6414"/>
+          </linearGradient>
+          <linearGradient id="emerald" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#52b788"/>
+            <stop offset="50%" stop-color="#1b4332"/>
+            <stop offset="100%" stop-color="#081c15"/>
+          </linearGradient>
+          <radialGradient id="pearl2" cx="35%" cy="35%" r="60%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="70%" stop-color="#eae6dd"/>
+            <stop offset="100%" stop-color="#c9c1b1"/>
+          </radialGradient>
+          <filter id="shadow2">
+            <feDropShadow dx="0" dy="20" stdDeviation="16" flood-color="#000000" flood-opacity="0.85"/>
+          </filter>
+        </defs>
+        <rect width="800" height="1000" fill="url(#bgGrad2)"/>
+
+        <!-- Pedestal / Stand reflection -->
+        <ellipse cx="400" cy="780" rx="300" ry="80" fill="#061214" opacity="0.9"/>
+
+        <!-- Jhumka Pair: Left & Right -->
+        
+          <g transform="translate(270, 260)" filter="url(#shadow2)">
+            <!-- Ear Stud: Peacock / Floral Motif -->
+            <circle cx="0" cy="0" r="32" fill="url(#gold2)"/>
+            <circle cx="0" cy="0" r="22" fill="url(#emerald)"/>
+            <circle cx="0" cy="0" r="10" fill="#fff" opacity="0.8"/>
+            <circle cx="0" cy="0" r="5" fill="url(#emerald)"/>
+
+            <!-- Connector stem & link -->
+            <line x1="0" y1="32" x2="0" y2="70" stroke="url(#gold2)" stroke-width="7"/>
+            <circle cx="0" cy="70" r="10" fill="url(#gold2)"/>
+
+            <!-- Bell / Dome of Jhumka -->
+            <path d="M -60 145 C -60 75 60 75 60 145 Z" fill="url(#gold2)" stroke="#b88922" stroke-width="3"/>
+            <!-- Filigree ribs on dome -->
+            <path d="M -40 142 C -40 95 -10 82 0 80 C 10 82 40 95 40 142" fill="none" stroke="#fff8db" stroke-width="2" opacity="0.6"/>
+            <path d="M -20 145 C -20 105 0 90 0 80 C 0 90 20 105 20 145" fill="none" stroke="#8c6414" stroke-width="2"/>
+            
+            <!-- Dome rim -->
+            <rect x="-65" y="145" width="130" height="14" rx="7" fill="url(#gold2)"/>
+
+            <!-- Dangling tiny pearl drops along the rim -->
+            
+              <g transform="translate(-50, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(-35, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(-20, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(-5, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(10, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(25, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(40, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(52, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+
+            <!-- Center hanging statement pearl drop -->
+            <line x1="0" y1="155" x2="0" y2="200" stroke="url(#gold2)" stroke-width="4"/>
+            <circle cx="0" cy="214" r="13" fill="url(#pearl2)"/>
+          </g>
+        
+          <g transform="translate(530, 260)" filter="url(#shadow2)">
+            <!-- Ear Stud: Peacock / Floral Motif -->
+            <circle cx="0" cy="0" r="32" fill="url(#gold2)"/>
+            <circle cx="0" cy="0" r="22" fill="url(#emerald)"/>
+            <circle cx="0" cy="0" r="10" fill="#fff" opacity="0.8"/>
+            <circle cx="0" cy="0" r="5" fill="url(#emerald)"/>
+
+            <!-- Connector stem & link -->
+            <line x1="0" y1="32" x2="0" y2="70" stroke="url(#gold2)" stroke-width="7"/>
+            <circle cx="0" cy="70" r="10" fill="url(#gold2)"/>
+
+            <!-- Bell / Dome of Jhumka -->
+            <path d="M -60 145 C -60 75 60 75 60 145 Z" fill="url(#gold2)" stroke="#b88922" stroke-width="3"/>
+            <!-- Filigree ribs on dome -->
+            <path d="M -40 142 C -40 95 -10 82 0 80 C 10 82 40 95 40 142" fill="none" stroke="#fff8db" stroke-width="2" opacity="0.6"/>
+            <path d="M -20 145 C -20 105 0 90 0 80 C 0 90 20 105 20 145" fill="none" stroke="#8c6414" stroke-width="2"/>
+            
+            <!-- Dome rim -->
+            <rect x="-65" y="145" width="130" height="14" rx="7" fill="url(#gold2)"/>
+
+            <!-- Dangling tiny pearl drops along the rim -->
+            
+              <g transform="translate(-50, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(-35, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(-20, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(-5, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(10, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(25, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(40, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+              <g transform="translate(52, 160)">
+                <line x1="0" y1="0" x2="0" y2="18" stroke="url(#gold2)" stroke-width="2.5"/>
+                <circle cx="0" cy="22" r="5.5" fill="url(#pearl2)"/>
+              </g>
+            
+
+            <!-- Center hanging statement pearl drop -->
+            <line x1="0" y1="155" x2="0" y2="200" stroke="url(#gold2)" stroke-width="4"/>
+            <circle cx="0" cy="214" r="13" fill="url(#pearl2)"/>
+          </g>
+        
+
+        <!-- Sparkles -->
+        <path d="M 270 260 Q 270 270 280 270 Q 270 270 270 280 Q 270 270 260 270 Q 270 270 270 260" fill="#fff"/>
+        <path d="M 530 260 Q 530 270 540 270 Q 530 270 530 280 Q 530 270 520 270 Q 530 270 530 260" fill="#fff"/>
+        <circle cx="400" cy="420" r="2.5" fill="#fff"/>
+
+        <text x="400" y="880" text-anchor="middle" fill="#e8bf53" font-family="'Playfair Display', serif" font-size="28" letter-spacing="4" font-weight="600">TEMPLE JHUMKA EARRINGS</text>
+        <text x="400" y="915" text-anchor="middle" fill="#8cb3a8" font-family="'Inter', sans-serif" font-size="14" letter-spacing="2">HANDCRAFTED FILIGREE • NATURAL EMERALD</text>
+      </svg>

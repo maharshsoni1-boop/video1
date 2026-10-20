@@ -71,7 +71,10 @@ const server = http.createServer(async (req, res) => {
     pathname = '/index.html';
   }
 
-  const filePath = path.join(__dirname, pathname);
+  let filePath = path.join(__dirname, 'public', pathname);
+  if (!fs.existsSync(filePath)) {
+    filePath = path.join(__dirname, pathname);
+  }
 
   // Security check to avoid directory traversal
   if (!filePath.startsWith(__dirname)) {

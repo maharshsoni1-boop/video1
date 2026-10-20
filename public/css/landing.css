@@ -1,0 +1,380 @@
+/**
+ * Landing Page Styles for ReelKar
+ * Hero section, upload dropzone, live looping phone reel preview,
+ * before & after comparison strip, and founder's 'Why This Exists' section.
+ */
+
+/* Hero Section */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+  padding: 1.5rem 0 3.5rem 0;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 0.5rem;
+  }
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  background: var(--gold-muted);
+  border: 1px solid var(--gold-border);
+  color: var(--gold-bright);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  width: fit-content;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 3.1rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.hero-title .highlight {
+  color: var(--gold-primary);
+  background: linear-gradient(135deg, #fff2cc 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.25rem;
+  }
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 540px;
+}
+
+/* Upload Dropzone */
+.upload-card {
+  background: var(--bg-card);
+  border: 2px dashed var(--gold-border);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-card:hover,
+.upload-card.drag-over {
+  border-color: var(--gold-primary);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}
+
+.upload-icon-circle {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--gold-muted);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  transition: transform var(--transition-fast);
+}
+
+.upload-card:hover .upload-icon-circle {
+  transform: scale(1.08);
+}
+
+.upload-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-white);
+}
+
+.upload-hint {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.upload-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Live Looping Reel Phone Mockup */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.phone-mockup {
+  width: 290px;
+  height: 580px;
+  background: #000;
+  border: 10px solid #1f222e;
+  border-radius: 44px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 175, 55, 0.15);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 18px;
+  background: #1f222e;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+/* Looping Canvas in Phone Mockup */
+.mockup-canvas-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #0d0a10;
+}
+
+#heroLoopCanvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mockup-overlay-ui {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1rem 1rem 1rem;
+}
+
+.mockup-header-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  color: var(--gold-bright);
+  border: 1px solid var(--gold-border);
+  align-self: flex-start;
+}
+
+.mockup-sidebar-icons {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.mockup-sidebar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.mockup-bottom-caption {
+  background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+  padding: 1rem 0.5rem 0.5rem 0.5rem;
+  color: #fff;
+}
+
+.mockup-shop-label {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+}
+
+.mockup-caption-text {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+  margin-top: 0.25rem;
+}
+
+/* Before and After Interactive Strip */
+.showcase-strip-section {
+  margin: 3.5rem 0;
+  padding: 2.5rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.showcase-header h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.showcase-header p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .before-after-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.comparison-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  position: relative;
+}
+
+.comparison-card.highlight-after {
+  border-color: var(--gold-border);
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.card-badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.badge-raw {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--text-secondary);
+}
+
+.badge-reel {
+  background: var(--gold-muted);
+  color: var(--gold-bright);
+  border: 1px solid var(--gold-border);
+}
+
+.raw-photos-strip {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.raw-photo-thumb {
+  width: 72px;
+  height: 90px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  border: 1px solid var(--border-subtle);
+  filter: grayscale(0.2) contrast(0.9);
+}
+
+.comparison-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold-muted);
+  margin: 0 auto;
+}
+
+/* Why This Exists Section */
+.why-section {
+  margin: 4rem 0 2rem 0;
+  padding: 3rem 2.5rem;
+  background: linear-gradient(180deg, #12141c 0%, #0d0f17 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--gold-primary);
+}
+
+.why-header {
+  margin-bottom: 1.5rem;
+}
+
+.why-header h2 {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin-bottom: 0.35rem;
+}
+
+.why-body p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.why-body p:last-child {
+  margin-bottom: 0;
+}
+
+.why-body strong {
+  color: var(--text-white);
+}

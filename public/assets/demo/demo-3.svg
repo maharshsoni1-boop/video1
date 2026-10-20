@@ -1,0 +1,87 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad3" cx="50%" cy="45%" r="65%">
+            <stop offset="0%" stop-color="#2a231b"/>
+            <stop offset="60%" stop-color="#14100c"/>
+            <stop offset="100%" stop-color="#080605"/>
+          </radialGradient>
+          <linearGradient id="roseGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffeedb"/>
+            <stop offset="35%" stop-color="#f4a261"/>
+            <stop offset="70%" stop-color="#e76f51"/>
+            <stop offset="100%" stop-color="#9a3e26"/>
+          </linearGradient>
+          <linearGradient id="emeraldCut" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#74c69d"/>
+            <stop offset="30%" stop-color="#40916c"/>
+            <stop offset="70%" stop-color="#1b4332"/>
+            <stop offset="100%" stop-color="#081c15"/>
+          </linearGradient>
+          <filter id="shadow3">
+            <feDropShadow dx="0" dy="26" stdDeviation="20" flood-color="#000000" flood-opacity="0.9"/>
+          </filter>
+          <filter id="gemGlow">
+            <feGaussianBlur stdDeviation="6" result="b"/>
+            <feComposite in="SourceGraphic" in2="b" operator="over"/>
+          </filter>
+        </defs>
+        <rect width="800" height="1000" fill="url(#bgGrad3)"/>
+
+        <!-- Velvet box / Marble ring riser -->
+        <g filter="url(#shadow3)">
+          <path d="M 220 580 L 400 480 L 580 580 L 400 680 Z" fill="#1b1713"/>
+          <path d="M 220 580 L 400 680 L 400 740 L 220 640 Z" fill="#120f0c"/>
+          <path d="M 580 580 L 400 680 L 400 740 L 580 640 Z" fill="#0d0a08"/>
+        </g>
+
+        <!-- Ring Band in 3D Perspective -->
+        <g transform="translate(400, 480)" filter="url(#shadow3)">
+          <!-- Lower Ring Ellipse -->
+          <ellipse cx="0" cy="40" rx="95" ry="55" fill="none" stroke="url(#roseGold)" stroke-width="26"/>
+          
+          <!-- Diamond Pave on Shoulders -->
+          
+            <circle cx="-60" cy="41" r="4.5" fill="#ffffff" stroke="#e76f51" stroke-width="1"/>
+          
+            <circle cx="-45" cy="39.5" r="4.5" fill="#ffffff" stroke="#e76f51" stroke-width="1"/>
+          
+            <circle cx="-30" cy="38" r="4.5" fill="#ffffff" stroke="#e76f51" stroke-width="1"/>
+          
+            <circle cx="30" cy="38" r="4.5" fill="#ffffff" stroke="#e76f51" stroke-width="1"/>
+          
+            <circle cx="45" cy="39.5" r="4.5" fill="#ffffff" stroke="#e76f51" stroke-width="1"/>
+          
+            <circle cx="60" cy="41" r="4.5" fill="#ffffff" stroke="#e76f51" stroke-width="1"/>
+          
+
+          <!-- Center Crown Mount -->
+          <polygon points="-75,-25 75,-25 55,20 -55,20" fill="url(#roseGold)" stroke="#fff" stroke-width="1"/>
+
+          <!-- Diamond Halo encircling emerald -->
+          <rect x="-85" y="-95" width="170" height="130" rx="16" fill="#e76f51" stroke="url(#roseGold)" stroke-width="3"/>
+          <circle cx="72" cy="-30" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="66.51932634081264" cy="-9.33509465228515" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="50.91168824543143" cy="8.183766184073562" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="27.553207130286467" cy="19.889494755609483" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="4.408728476930472e-15" cy="24" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-27.55320713028646" cy="19.889494755609483" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-50.91168824543142" cy="8.18376618407357" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-66.51932634081264" cy="-9.335094652285147" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-72" cy="-29.999999999999993" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-66.51932634081265" cy="-50.66490534771484" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-50.911688245431435" cy="-68.18376618407356" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-27.553207130286506" cy="-79.88949475560946" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="-1.3226185430791413e-14" cy="-84" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="27.55320713028648" cy="-79.88949475560948" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="50.91168824543141" cy="-68.18376618407358" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/><circle cx="66.51932634081263" cy="-50.66490534771488" r="6.5" fill="#ffffff" stroke="#c9c9c9" stroke-width="1"/>
+
+          <!-- Emerald Step Cut Centerpiece -->
+          <g filter="url(#gemGlow)">
+            <rect x="-55" y="-72" width="110" height="84" rx="8" fill="url(#emeraldCut)" stroke="#95d5b2" stroke-width="2.5"/>
+            <!-- Octagonal inner facets -->
+            <polygon points="-40,-58 40,-58 50,-30 40,-2 -40,-2 -50,-30" fill="#2d6a4f" opacity="0.8"/>
+            <polygon points="-28,-46 28,-46 36,-30 28,-14 -28,-14 -36,-30" fill="#52b788" opacity="0.9"/>
+            <!-- Table reflection highlight -->
+            <polygon points="-20,-42 20,-42 24,-30 -24,-30" fill="#d8f3dc" opacity="0.6"/>
+          </g>
+
+          <!-- Prongs -->
+          <circle cx="-50" cy="-68" r="5" fill="url(#roseGold)"/>
+          <circle cx="50" cy="-68" r="5" fill="url(#roseGold)"/>
+          <circle cx="-50" cy="8" r="5" fill="url(#roseGold)"/>
+          <circle cx="50" cy="8" r="5" fill="url(#roseGold)"/>
+        </g>
+
+        <!-- Light flares -->
+        <path d="M 430 410 Q 430 422 442 422 Q 430 422 430 434 Q 430 422 418 422 Q 430 422 430 410" fill="#ffffff"/>
+        <path d="M 370 470 Q 370 480 380 480 Q 370 480 370 490 Q 370 480 360 480 Q 370 480 370 470" fill="#ffffff"/>
+
+        <text x="400" y="880" text-anchor="middle" fill="#f4a261" font-family="'Playfair Display', serif" font-size="28" letter-spacing="4" font-weight="600">ROYAL SOLITAIRE RING</text>
+        <text x="400" y="915" text-anchor="middle" fill="#b3876a" font-family="'Inter', sans-serif" font-size="14" letter-spacing="2">ZAMBIAN EMERALD • 18K ROSE GOLD</text>
+      </svg>

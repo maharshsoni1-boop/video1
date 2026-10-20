@@ -1,0 +1,169 @@
+<svg width="800" height="1000" viewBox="0 0 800 1000" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="bgGrad4" cx="50%" cy="45%" r="65%">
+            <stop offset="0%" stop-color="#331c0c"/>
+            <stop offset="60%" stop-color="#170c04"/>
+            <stop offset="100%" stop-color="#080401"/>
+          </radialGradient>
+          <linearGradient id="antiqueGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffea9f"/>
+            <stop offset="25%" stop-color="#d4af37"/>
+            <stop offset="60%" stop-color="#aa821b"/>
+            <stop offset="85%" stop-color="#6d4f0d"/>
+            <stop offset="100%" stop-color="#453106"/>
+          </linearGradient>
+          <filter id="shadow4">
+            <feDropShadow dx="0" dy="24" stdDeviation="18" flood-color="#000000" flood-opacity="0.9"/>
+          </filter>
+        </defs>
+        <rect width="800" height="1000" fill="url(#bgGrad4)"/>
+
+        <!-- Display Cushion -->
+        <ellipse cx="400" cy="620" rx="280" ry="140" fill="#1f0f06" filter="url(#shadow4)"/>
+        <ellipse cx="400" cy="600" rx="250" ry="120" fill="#2d170b" opacity="0.8"/>
+
+        <!-- Bangle Pair resting slightly overlapping -->
+        
+          <g transform="translate(400, 370) rotate(-12)" filter="url(#shadow4)">
+            <!-- Outer bangle ring -->
+            <ellipse cx="0" cy="0" rx="170" ry="110" fill="none" stroke="url(#antiqueGold)" stroke-width="40"/>
+            <!-- Inner cavity -->
+            <ellipse cx="0" cy="0" rx="145" ry="85" fill="#120803" opacity="0.6"/>
+            
+            <!-- Floral embossing studs around circumference -->
+            
+                <circle cx="170" cy="0" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="170" cy="0" r="3" fill="#800020"/>
+              
+                <circle cx="159.74774553360444" cy="37.62221576582356" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="159.74774553360444" cy="37.62221576582356" r="3" fill="#800020"/>
+              
+                <circle cx="130.22755533022627" cy="70.70663706551932" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="130.22755533022627" cy="70.70663706551932" r="3" fill="#800020"/>
+              
+                <circle cx="85.00000000000001" cy="95.26279441628824" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="85.00000000000001" cy="95.26279441628824" r="3" fill="#800020"/>
+              
+                <circle cx="29.52019020337817" cy="108.32885283134289" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="29.52019020337817" cy="108.32885283134289" r="3" fill="#800020"/>
+              
+                <circle cx="-29.520190203378153" cy="108.32885283134289" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-29.520190203378153" cy="108.32885283134289" r="3" fill="#800020"/>
+              
+                <circle cx="-84.99999999999996" cy="95.26279441628826" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-84.99999999999996" cy="95.26279441628826" r="3" fill="#800020"/>
+              
+                <circle cx="-130.22755533022624" cy="70.70663706551935" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-130.22755533022624" cy="70.70663706551935" r="3" fill="#800020"/>
+              
+                <circle cx="-159.74774553360442" cy="37.622215765823576" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-159.74774553360442" cy="37.622215765823576" r="3" fill="#800020"/>
+              
+                <circle cx="-170" cy="1.3471114790620885e-14" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-170" cy="1.3471114790620885e-14" r="3" fill="#800020"/>
+              
+                <circle cx="-159.74774553360444" cy="-37.622215765823555" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-159.74774553360444" cy="-37.622215765823555" r="3" fill="#800020"/>
+              
+                <circle cx="-130.2275553302263" cy="-70.70663706551932" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-130.2275553302263" cy="-70.70663706551932" r="3" fill="#800020"/>
+              
+                <circle cx="-85.00000000000007" cy="-95.26279441628823" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-85.00000000000007" cy="-95.26279441628823" r="3" fill="#800020"/>
+              
+                <circle cx="-29.520190203378156" cy="-108.32885283134289" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-29.520190203378156" cy="-108.32885283134289" r="3" fill="#800020"/>
+              
+                <circle cx="29.520190203378096" cy="-108.3288528313429" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="29.520190203378096" cy="-108.3288528313429" r="3" fill="#800020"/>
+              
+                <circle cx="85.00000000000001" cy="-95.26279441628824" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="85.00000000000001" cy="-95.26279441628824" r="3" fill="#800020"/>
+              
+                <circle cx="130.22755533022624" cy="-70.70663706551936" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="130.22755533022624" cy="-70.70663706551936" r="3" fill="#800020"/>
+              
+                <circle cx="159.7477455336044" cy="-37.62221576582364" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="159.7477455336044" cy="-37.62221576582364" r="3" fill="#800020"/>
+              
+
+            <!-- Center relief crest -->
+            <rect x="-24" y="-125" width="48" height="26" rx="6" fill="#ffd166" stroke="#aa821b" stroke-width="2"/>
+            <circle cx="0" cy="-112" r="6" fill="#800020"/>
+          </g>
+        
+          <g transform="translate(400, 465) rotate(14)" filter="url(#shadow4)">
+            <!-- Outer bangle ring -->
+            <ellipse cx="0" cy="0" rx="170" ry="110" fill="none" stroke="url(#antiqueGold)" stroke-width="40"/>
+            <!-- Inner cavity -->
+            <ellipse cx="0" cy="0" rx="145" ry="85" fill="#120803" opacity="0.6"/>
+            
+            <!-- Floral embossing studs around circumference -->
+            
+                <circle cx="170" cy="0" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="170" cy="0" r="3" fill="#800020"/>
+              
+                <circle cx="159.74774553360444" cy="37.62221576582356" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="159.74774553360444" cy="37.62221576582356" r="3" fill="#800020"/>
+              
+                <circle cx="130.22755533022627" cy="70.70663706551932" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="130.22755533022627" cy="70.70663706551932" r="3" fill="#800020"/>
+              
+                <circle cx="85.00000000000001" cy="95.26279441628824" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="85.00000000000001" cy="95.26279441628824" r="3" fill="#800020"/>
+              
+                <circle cx="29.52019020337817" cy="108.32885283134289" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="29.52019020337817" cy="108.32885283134289" r="3" fill="#800020"/>
+              
+                <circle cx="-29.520190203378153" cy="108.32885283134289" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-29.520190203378153" cy="108.32885283134289" r="3" fill="#800020"/>
+              
+                <circle cx="-84.99999999999996" cy="95.26279441628826" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-84.99999999999996" cy="95.26279441628826" r="3" fill="#800020"/>
+              
+                <circle cx="-130.22755533022624" cy="70.70663706551935" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-130.22755533022624" cy="70.70663706551935" r="3" fill="#800020"/>
+              
+                <circle cx="-159.74774553360442" cy="37.622215765823576" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-159.74774553360442" cy="37.622215765823576" r="3" fill="#800020"/>
+              
+                <circle cx="-170" cy="1.3471114790620885e-14" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-170" cy="1.3471114790620885e-14" r="3" fill="#800020"/>
+              
+                <circle cx="-159.74774553360444" cy="-37.622215765823555" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-159.74774553360444" cy="-37.622215765823555" r="3" fill="#800020"/>
+              
+                <circle cx="-130.2275553302263" cy="-70.70663706551932" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-130.2275553302263" cy="-70.70663706551932" r="3" fill="#800020"/>
+              
+                <circle cx="-85.00000000000007" cy="-95.26279441628823" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-85.00000000000007" cy="-95.26279441628823" r="3" fill="#800020"/>
+              
+                <circle cx="-29.520190203378156" cy="-108.32885283134289" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="-29.520190203378156" cy="-108.32885283134289" r="3" fill="#800020"/>
+              
+                <circle cx="29.520190203378096" cy="-108.3288528313429" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="29.520190203378096" cy="-108.3288528313429" r="3" fill="#800020"/>
+              
+                <circle cx="85.00000000000001" cy="-95.26279441628824" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="85.00000000000001" cy="-95.26279441628824" r="3" fill="#800020"/>
+              
+                <circle cx="130.22755533022624" cy="-70.70663706551936" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="130.22755533022624" cy="-70.70663706551936" r="3" fill="#800020"/>
+              
+                <circle cx="159.7477455336044" cy="-37.62221576582364" r="7" fill="#ffea9f" stroke="#7a5811" stroke-width="1.5"/>
+                <circle cx="159.7477455336044" cy="-37.62221576582364" r="3" fill="#800020"/>
+              
+
+            <!-- Center relief crest -->
+            <rect x="-24" y="-125" width="48" height="26" rx="6" fill="#ffd166" stroke="#aa821b" stroke-width="2"/>
+            <circle cx="0" cy="-112" r="6" fill="#800020"/>
+          </g>
+        
+
+        <path d="M 450 330 Q 450 340 460 340 Q 450 340 450 350 Q 450 340 440 340 Q 450 340 450 330" fill="#ffffff"/>
+        <path d="M 330 480 Q 330 490 340 490 Q 330 490 330 500 Q 330 490 320 490 Q 330 490 330 480" fill="#ffffff"/>
+
+        <text x="400" y="880" text-anchor="middle" fill="#d4af37" font-family="'Playfair Display', serif" font-size="28" letter-spacing="4" font-weight="600">ANTIQUE KADA BANGLES</text>
+        <text x="400" y="915" text-anchor="middle" fill="#9f8150" font-family="'Inter', sans-serif" font-size="14" letter-spacing="2">NAKSHI CRAFTED • 22K SOLID GOLD</text>
+      </svg>
