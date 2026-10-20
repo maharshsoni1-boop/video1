@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="/css/landing.css" />
   <link rel="stylesheet" href="/css/studio.css" />
   <link rel="stylesheet" href="/css/player.css" />
+  <link rel="stylesheet" href="/css/aisuite.css" />
 </head>
 <body>
 
@@ -41,6 +42,19 @@
         <div class="brand-name">Reel<span>Kar</span></div>
       </div>
 
+      <!-- Workspace Switcher: Reel Studio vs AI Suite (aisuite.run) -->
+      <div class="workspace-switcher" id="workspaceSwitcher">
+        <button class="workspace-tab-btn active" id="tabReelStudio" type="button">
+          <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          <span>Reel Studio</span>
+        </button>
+        <button class="workspace-tab-btn" id="tabAISuite" type="button">
+          <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>AI Suite</span>
+          <span class="tab-badge-glow">aisuite.run</span>
+        </button>
+      </div>
+
       <div class="header-actions">
         <div class="status-badge" id="aiStatusBadge">
           <span class="status-pulse"></span>
@@ -54,6 +68,8 @@
       </div>
     </header>
 
+    <!-- REEL MAKER WORKSPACE VIEW -->
+    <div id="reelMakerView">
     <!-- SECTION 1: HERO LANDING -->
     <section class="hero-section" id="heroSection">
       <div class="hero-content">
@@ -461,6 +477,442 @@
           <strong>ReelKar is built to level the playing field.</strong> Five photos turn into an aesthetic, moving vertical reel with original sound and culturally natural captions in seconds. Zero editing timelines, zero copyright strikes, and a direct WhatsApp CTA to turn views into immediate sales.
         </p>
       </div>
+    </section>
+
+    </div> <!-- END #reelMakerView -->
+
+    <!-- ======================================================== -->
+    <!-- SECTION: AI SUITE WORKSPACE CONSOLE (aisuite.run)         -->
+    <!-- ======================================================== -->
+    <section class="aisuite-container" id="aiSuiteSection">
+
+      <!-- AI Suite Hero Bar -->
+      <div class="aisuite-hero">
+        <div class="aisuite-badge-row">
+          <span class="aisuite-chip chip-gold">
+            <svg class="icon" style="width: 13px; height: 13px;" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>aisuite.run Generative Workspace</span>
+          </span>
+          <span class="aisuite-chip chip-cyan">
+            <svg class="icon" style="width: 13px; height: 13px;" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Live 2D/3D Perspective Engines</span>
+          </span>
+          <span class="aisuite-chip">
+            <svg class="icon" style="width: 13px; height: 13px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>1-Click Sync to Reel Studio</span>
+          </span>
+        </div>
+
+        <h1 class="aisuite-hero-title">
+          Turn 1 photo into <span>5 studio angles, kinetic clips, and viral scripts.</span>
+        </h1>
+        <p class="aisuite-hero-subtitle">
+          Don't have 5 different product shots? Use our AI Suite to generate multiple showroom camera angles, luxury pedestal backdrops, kinetic motion videos, and structured shot lists in seconds.
+        </p>
+      </div>
+
+      <!-- Upstream Creative Tool Switcher (aisuite.run categories) -->
+      <nav class="aisuite-tools-nav">
+        <button class="tool-tab-card active" data-tool="multi-angle" type="button">
+          <div class="tool-tab-icon">
+            <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+          </div>
+          <div>
+            <div style="color: var(--text-white);">Multi-Angle Studio</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">1 Photo → 5 Angles</div>
+          </div>
+        </button>
+
+        <button class="tool-tab-card" data-tool="bg-studio" type="button">
+          <div class="tool-tab-icon">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div>
+            <div style="color: var(--text-white);">Studio Pedestal</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">Luxury Backdrops</div>
+          </div>
+        </button>
+
+        <button class="tool-tab-card" data-tool="image-to-video" type="button">
+          <div class="tool-tab-icon">
+            <svg class="icon" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <div>
+            <div style="color: var(--text-white);">Image to Video</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">Kinetic Motion Loops</div>
+          </div>
+        </button>
+
+        <button class="tool-tab-card" data-tool="story-planner" type="button">
+          <div class="tool-tab-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <div style="color: var(--text-white);">Story & Shot List</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">Viral 5-Scene Script</div>
+          </div>
+        </button>
+
+        <button class="tool-tab-card" data-tool="audio-studio" type="button">
+          <div class="tool-tab-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <div>
+            <div style="color: var(--text-white);">Audio & Beats</div>
+            <div style="font-size: 0.72rem; color: var(--text-muted);">Indian Retail Jingles</div>
+          </div>
+        </button>
+      </nav>
+
+      <!-- ============================================== -->
+      <!-- TOOL 1: MULTI-ANGLE STUDIO                     -->
+      <!-- ============================================== -->
+      <div class="tool-panel active" id="panel-multi-angle">
+        <div class="suite-console-grid">
+          <!-- Parameter Column -->
+          <div class="console-controls-card">
+            <div class="console-title-row">
+              <div class="console-title">
+                <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                <span>Input Product Photo</span>
+              </div>
+              <span class="aisuite-chip">Single Image</span>
+            </div>
+
+            <!-- Single Photo Dropzone -->
+            <div class="suite-dropzone" id="suiteAngleDropzone">
+              <input type="file" id="suiteAngleFileInput" accept="image/*" style="display: none;" />
+              <img class="suite-preview-thumb suite-source-preview" src="/assets/demo/demo-1.jpg" alt="Source Item" />
+              <div class="suite-thumb-overlay">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                <span>Change Photo</span>
+              </div>
+            </div>
+
+            <!-- Sample Selector -->
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Or pick a sample item:</div>
+              <div class="suite-sample-row">
+                <img class="suite-sample-thumb selected" data-src="/assets/demo/demo-1.jpg" data-name="Kundan Choker" src="/assets/demo/demo-1.jpg" alt="Sample 1" title="Kundan Choker" />
+                <img class="suite-sample-thumb" data-src="/assets/demo/demo-2.jpg" data-name="Ruby Jhumka" src="/assets/demo/demo-2.jpg" alt="Sample 2" title="Ruby Jhumka" />
+                <img class="suite-sample-thumb" data-src="/assets/demo/demo-3.jpg" data-name="Temple Kada" src="/assets/demo/demo-3.jpg" alt="Sample 3" title="Temple Kada" />
+                <img class="suite-sample-thumb" data-src="/assets/demo/demo-4.jpg" data-name="Emerald Ring" src="/assets/demo/demo-4.jpg" alt="Sample 4" title="Emerald Ring" />
+                <img class="suite-sample-thumb" data-src="/assets/demo/demo-5.jpg" data-name="Bridal Maang Tikka" src="/assets/demo/demo-5.jpg" alt="Sample 5" title="Bridal Maang Tikka" />
+              </div>
+            </div>
+
+            <!-- Angle Types Planned -->
+            <div>
+              <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem;">5 Angles Generated:</div>
+              <div style="display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.78rem; color: var(--text-secondary);">
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><span style="color: var(--gold-primary);">✓</span> <strong>Macro 1.8x</strong> (Gem craftsmanship zoom)</div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><span style="color: var(--gold-primary);">✓</span> <strong>Low-Angle Hero</strong> (Luxury dramatic elevation)</div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><span style="color: var(--gold-primary);">✓</span> <strong>90° Overhead</strong> (Clean editorial flat-lay)</div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><span style="color: var(--gold-primary);">✓</span> <strong>45° Showroom</strong> (Classic commercial angle)</div>
+                <div style="display: flex; align-items: center; gap: 0.4rem;"><span style="color: var(--gold-primary);">✓</span> <strong>Wide Showcase</strong> (Warm golden bokeh backdrop)</div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-full" id="suiteGenerateAnglesBtn" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Generate 5 Camera Angles</span>
+            </button>
+          </div>
+
+          <!-- Output Gallery Column -->
+          <div class="console-output-card">
+            <div class="output-header-row">
+              <div>
+                <h3 style="font-size: 1.15rem; color: var(--text-white); font-weight: 700;">Multi-Angle Commercial Perspectives</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">5 distinct perspectives ready for your Instagram Reel or catalog.</p>
+              </div>
+              <div class="aisuite-chip chip-gold" id="suiteAnglesCountBadge">5 Studio Angles</div>
+            </div>
+
+            <!-- Queue Progress Indicator -->
+            <div class="suite-queue-bar">
+              <div style="display: flex; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--text-white); font-weight: 600;">
+                <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <span id="suiteQueueStatus">Ready. Click 'Generate 5 Camera Angles' to begin.</span>
+              </div>
+              <div class="suite-queue-progress">
+                <div class="suite-queue-fill" id="suiteQueueFill"></div>
+              </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="angles-gallery-grid" id="suiteAnglesGallery">
+              <!-- Dynamically populated -->
+              <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📸</div>
+                <p style="font-weight: 600; color: var(--text-secondary);">Click "Generate 5 Camera Angles" to synthesize perspectives.</p>
+                <p style="font-size: 0.8rem;">Turns 1 photo into Macro Close-up, Low-Angle Hero, 90° Flatlay, 45° Profile, and Wide Bokeh shots.</p>
+              </div>
+            </div>
+
+            <!-- Master Action Banner: Send all to Reel Studio -->
+            <div class="suite-action-banner" id="anglesActionBanner" style="display: none;">
+              <div class="suite-action-text">
+                <div class="suite-action-title">✨ Ready to turn these 5 angles into a high-converting Reel?</div>
+                <div class="suite-action-desc">Click below to send all 5 angles directly into ReelKar's photo tray and open the Reel Studio.</div>
+              </div>
+              <button class="btn btn-primary" id="sendAnglesToReelBtn" type="button">
+                <svg class="icon" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Send All 5 Angles to Reel Maker →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TOOL 2: STUDIO BACKGROUND PEDESTAL             -->
+      <!-- ============================================== -->
+      <div class="tool-panel" id="panel-bg-studio">
+        <div class="suite-console-grid">
+          <!-- Parameter Column -->
+          <div class="console-controls-card">
+            <div class="console-title-row">
+              <div class="console-title">
+                <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <span>Studio Environment</span>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.6rem;">Choose Luxury Backdrop:</div>
+              <div class="suite-presets-grid">
+                <div class="suite-preset-chip active" data-backdrop="obsidian-gold">
+                  <span class="preset-chip-title">👑 Obsidian & Gold</span>
+                  <span class="preset-chip-desc">Dark stone podium with warm gold glow</span>
+                </div>
+                <div class="suite-preset-chip" data-backdrop="marble-silk">
+                  <span class="preset-chip-title">🏛️ Marble & Silk</span>
+                  <span class="preset-chip-desc">Carrera white marble with champagne fabric</span>
+                </div>
+                <div class="suite-preset-chip" data-backdrop="festive-marigold">
+                  <span class="preset-chip-title">🌺 Festive Diya</span>
+                  <span class="preset-chip-desc">Warm Indian brass lighting & marigolds</span>
+                </div>
+                <div class="suite-preset-chip" data-backdrop="emerald-velvet">
+                  <span class="preset-chip-title">🌿 Emerald Velvet</span>
+                  <span class="preset-chip-desc">Deep jewel-tone luxury boutique cloth</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+              <button class="btn btn-primary btn-full" id="suiteAddBackdropBtn" type="button">
+                <span>+ Add to Reel Tray</span>
+              </button>
+              <button class="btn btn-outline-gold btn-full" id="suiteDownloadBackdropBtn" type="button">
+                <span>Download Studio Shot</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Canvas Preview -->
+          <div class="console-output-card" style="align-items: center; justify-content: center;">
+            <div style="width: 100%; max-width: 440px; aspect-ratio: 4 / 5; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-lg); border: 1px solid var(--gold-border);">
+              <canvas id="suiteBackdropCanvas" width="800" height="1000" style="width: 100%; height: 100%; display: block;"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TOOL 3: IMAGE TO VIDEO MOTION ANIMATOR         -->
+      <!-- ============================================== -->
+      <div class="tool-panel" id="panel-image-to-video">
+        <div class="suite-console-grid">
+          <!-- Parameter Column -->
+          <div class="console-controls-card">
+            <div class="console-title-row">
+              <div class="console-title">
+                <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                <span>Kinetic Motion Controls</span>
+              </div>
+            </div>
+
+            <div>
+              <div style="font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.6rem;">Select Motion Archetype:</div>
+              <div class="suite-presets-grid">
+                <div class="suite-preset-chip active" data-motion="turntable">
+                  <span class="preset-chip-title">🌟 3D Turntable</span>
+                  <span class="preset-chip-desc">Subtle yaw rotation & traveling glint sweep</span>
+                </div>
+                <div class="suite-preset-chip" data-motion="shimmer">
+                  <span class="preset-chip-title">✨ Diamond Shimmer</span>
+                  <span class="preset-chip-desc">Dynamic gem sparkle & luxury breathing</span>
+                </div>
+                <div class="suite-preset-chip" data-motion="zoom-in">
+                  <span class="preset-chip-title">🔍 Ken-Burns Hero</span>
+                  <span class="preset-chip-desc">Slow dramatic push-in with focus pull</span>
+                </div>
+                <div class="suite-preset-chip" data-motion="drift">
+                  <span class="preset-chip-title">🌊 Floating Drift</span>
+                  <span class="preset-chip-desc">Weightless levitation with soft shadow pulse</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem;">
+              <button class="btn btn-secondary btn-full" id="suiteMotionToggleBtn" type="button">
+                <span>⏸ Pause</span>
+              </button>
+              <button class="btn btn-primary btn-full" id="suiteSendMotionToReelBtn" type="button">
+                <span>+ Use Frame in Reel Tray</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Motion Canvas View -->
+          <div class="console-output-card" style="align-items: center; justify-content: center;">
+            <div class="motion-player-wrapper">
+              <div class="motion-canvas-frame">
+                <canvas id="suiteMotionCanvas" width="540" height="960"></canvas>
+                <div class="motion-overlay-controls">
+                  <span>⚡ Real-Time Kinetic Loop @ 60fps</span>
+                  <span style="color: var(--gold-bright);">9:16 Vertical</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TOOL 4: AI STORY & SHOT LIST PLANNER           -->
+      <!-- ============================================== -->
+      <div class="tool-panel" id="panel-story-planner">
+        <div class="suite-console-grid">
+          <!-- Parameter Column -->
+          <div class="console-controls-card">
+            <div class="console-title-row">
+              <div class="console-title">
+                <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span>Campaign Brief</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="suiteCampaignGoal">Campaign Objective</label>
+              <select class="form-select" id="suiteCampaignGoal">
+                <option value="launch">✨ New Exclusive Collection Launch</option>
+                <option value="festive">🪔 Festive & Wedding Season Dhamaka</option>
+                <option value="clearance">⚡ Limited Stock Flash Discount</option>
+                <option value="trust">💎 Pure 22K Hallmarked Trust & Exchange</option>
+              </select>
+            </div>
+
+            <div style="font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;">
+              Generates a structured 5-scene viral Instagram Reel storyboard with timestamps, shot framing, on-screen text, and voiceover in your selected shop language.
+            </div>
+
+            <button class="btn btn-primary btn-full" id="suiteGenerateStoryBtn" type="button">
+              <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Generate 5-Scene Storyboard</span>
+            </button>
+          </div>
+
+          <!-- Storyboard & Caption Column -->
+          <div class="console-output-card">
+            <div class="output-header-row">
+              <div>
+                <h3 style="font-size: 1.15rem; color: var(--text-white); font-weight: 700;">Viral 15-Second Reel Storyboard</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary);">Optimized for Indian retailers to maximize engagement and WhatsApp inquiries.</p>
+              </div>
+            </div>
+
+            <!-- Storyboard Timeline Container -->
+            <div class="storyboard-timeline" id="suiteStoryboardTimeline">
+              <div style="text-align: center; padding: 3rem 1rem; color: var(--text-muted);">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📝</div>
+                <p style="font-weight: 600; color: var(--text-secondary);">Click "Generate 5-Scene Storyboard" to plan your Reel sequence.</p>
+              </div>
+            </div>
+
+            <!-- Ready Caption Result Box -->
+            <div id="suiteStoryResultsBox" style="display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-subtle);">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <div style="font-size: 0.95rem; font-weight: 700; color: var(--gold-bright);">Instagram Caption & Viral Hashtags:</div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="btn btn-outline-gold btn-sm" id="suiteCopyStoryCaptionBtn" type="button">
+                    <span>📋 Copy Caption</span>
+                  </button>
+                  <button class="btn btn-primary btn-sm" id="suiteApplyStoryToReelBtn" type="button">
+                    <span>⚡ Apply to Reel Studio</span>
+                  </button>
+                </div>
+              </div>
+              <div style="background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-subtle); padding: 1rem; border-radius: var(--radius-md); font-family: var(--font-sans); font-size: 0.85rem; color: var(--text-primary); white-space: pre-wrap; line-height: 1.6;" id="suiteStoryCaptionDisplay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================== -->
+      <!-- TOOL 5: AI AUDIO & RETAIL JINGLES              -->
+      <!-- ============================================== -->
+      <div class="tool-panel" id="panel-audio-studio">
+        <div class="suite-console-grid">
+          <div class="console-controls-card">
+            <div class="console-title-row">
+              <div class="console-title">
+                <svg class="icon" style="color: var(--gold-primary);" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>Procedural Audio Engine</span>
+              </div>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
+              Zero copyright strikes. Synthesized via Web Audio API with instruments matched to Indian retail commercial psychology.
+            </p>
+            <div style="font-size: 0.75rem; color: var(--accent-cyan); display: flex; align-items: center; gap: 0.4rem;">
+              <span>• 44.1 kHz Crystal Stereo</span>
+              <span>• Zero Royalty License</span>
+            </div>
+          </div>
+
+          <div class="console-output-card">
+            <h3 style="font-size: 1.15rem; color: var(--text-white); font-weight: 700;">4 Soundtracks for Indian Retailers</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem;">
+
+              <div class="section-card" style="margin: 0; padding: 1.25rem;">
+                <div style="font-weight: 700; color: var(--gold-bright); margin-bottom: 0.25rem;">Royal Gold Chimes</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.85rem;">Deep luxury drone pad with singing bowl harmonics. Ideal for high-end gold & diamond.</div>
+                <button class="btn btn-secondary btn-sm suite-audio-play-btn" data-preset="royal" type="button">
+                  ▶ Listen
+                </button>
+              </div>
+
+              <div class="section-card" style="margin: 0; padding: 1.25rem;">
+                <div style="font-weight: 700; color: var(--accent-festive); margin-bottom: 0.25rem;">Festive Dholak Beat</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.85rem;">Joyful Indian rhythmic percussion for Diwali, Navratri & wedding bridal season.</div>
+                <button class="btn btn-secondary btn-sm suite-audio-play-btn" data-preset="festive" type="button">
+                  ▶ Listen
+                </button>
+              </div>
+
+              <div class="section-card" style="margin: 0; padding: 1.25rem;">
+                <div style="font-weight: 700; color: var(--accent-cyan); margin-bottom: 0.25rem;">Minimal Luxe Piano</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.85rem;">Contemporary soft piano chords with modern elegance for boutiques & bakeries.</div>
+                <button class="btn btn-secondary btn-sm suite-audio-play-btn" data-preset="minimal" type="button">
+                  ▶ Listen
+                </button>
+              </div>
+
+              <div class="section-card" style="margin: 0; padding: 1.25rem;">
+                <div style="font-weight: 700; color: #a855f7; margin-bottom: 0.25rem;">Bold Commercial Reel</div>
+                <div style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.85rem;">Punchy 808 bass, upbeat claps, and energetic tempo to stop feed scrolling.</div>
+                <button class="btn btn-secondary btn-sm suite-audio-play-btn" data-preset="bold" type="button">
+                  ▶ Listen
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
   </div>

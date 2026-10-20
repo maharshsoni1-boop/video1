@@ -11,6 +11,7 @@ import { ProceduralAudioEngine } from './audio.js';
 import { VideoRenderer } from './renderer.js';
 import { telemetry } from './telemetry.js';
 import { analyzePhotos, submitFeedback } from './api.js';
+import { initAISuite } from './aisuite.js';
 
 // Application State
 const state = {
@@ -46,6 +47,26 @@ document.addEventListener('DOMContentLoaded', () => {
   initTelemetryPanel();
   initFeedbackModal();
   initActionHandlers();
+  initAISuite();
+
+  // Expose global bridge for AI Suite integration
+  window.showToast = showToast;
+  window.reelkarLoadGeneratedPhotos = (photos) => {
+    state.photos = photos;
+    transitionToStudio();
+    renderPhotoTray();
+    updateTelemetryImageStats();
+  };
+  window.reelkarAppendPhoto = (photo) => {
+    if (state.photos.length >= CONFIG.VIDEO.MAX_PHOTOS) {
+      showToast(`Maximum ${CONFIG.VIDEO.MAX_PHOTOS} photos allowed in tray.`, 'warning');
+      return;
+    }
+    state.photos.push(photo);
+    transitionToStudio();
+    renderPhotoTray();
+    updateTelemetryImageStats();
+  };
 });
 
 // -------------------------------------------------------------
