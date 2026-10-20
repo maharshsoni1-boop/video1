@@ -11,15 +11,45 @@ export const CONFIG = {
 
   // Video Generation Settings
   VIDEO: {
-    WIDTH: 1080,
-    HEIGHT: 1920,
+    WIDTH: 720,
+    HEIGHT: 1280,
     FPS: 30,
-    SLIDE_DURATION_SEC: 2.6, // seconds per photo
-    OUTRO_DURATION_SEC: 2.5, // seconds for outro CTA
-    TRANSITION_DURATION_SEC: 0.45,
+    SLIDE_DURATION_SEC: 2.0, // seconds per photo
+    OUTRO_DURATION_SEC: 1.8, // seconds for outro CTA
+    TRANSITION_DURATION_SEC: 0.35,
     MIN_PHOTOS: 3,
     MAX_PHOTOS: 8,
     DEFAULT_PHOTO_COUNT: 5,
+  },
+
+  // Speed & Quality Modes
+  SPEED_MODES: {
+    turbo: {
+      id: 'turbo',
+      name: '⚡ Turbo (4-6s)',
+      badge: 'Recommended',
+      width: 720,
+      height: 1280,
+      slideDuration: 2.0,
+      outroDuration: 1.8,
+      transitionDuration: 0.35,
+      bitrate: 4500000,
+      fps: 30,
+      description: 'Renders in 4-6s — 56% lighter and ideal for mobile'
+    },
+    ultra: {
+      id: 'ultra',
+      name: '💎 Ultra HD (1080p)',
+      badge: 'Full Studio',
+      width: 1080,
+      height: 1920,
+      slideDuration: 2.6,
+      outroDuration: 2.4,
+      transitionDuration: 0.45,
+      bitrate: 8000000,
+      fps: 30,
+      description: 'Maximum 1080p resolution (~12s render time)'
+    }
   },
 
   // Image Downscaling (keeps request payload << 4.5 MB for Vercel)

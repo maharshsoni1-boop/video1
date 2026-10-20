@@ -248,7 +248,7 @@ You must return ONLY a valid, raw JSON object (no markdown fences, no triple bac
     const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
 
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 18000); // 18s timeout
+    const timeout = setTimeout(() => controller.abort(), 4500); // 4.5s fast timeout for snappy experience
 
     const geminiRes = await fetch(geminiUrl, {
       method: 'POST',

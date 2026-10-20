@@ -469,13 +469,14 @@ export class VideoRenderer {
    * Main Video Render Pipeline
    * @param {Object} options
    * @param {Array} options.photos - list of photo objects with img & metadata
-   * @param {string} options.presetId - royal-gold | festive | minimal-luxe | bold-reel
-   * @param {Object} options.shopDetails - { shopName, city, whatsapp, category, festival }
+   * @param {string} [options.presetId] - royal-gold | festive | minimal-luxe | bold-reel
+   * @param {string} [options.speedModeId] - turbo | ultra
+   * @param {Object} [options.shopDetails] - { shopName, city, whatsapp, category, festival, isOfflineMode }
    * @param {HTMLCanvasElement} [options.previewCanvas] - live miniature preview element
    * @param {Function} [options.onProgress] - ({ stage, percent, frame, totalFrames }) => void
    * @returns {Promise<{ blob: Blob, url: string, mimeType: string, durationSec: number, sizeBytes: number }>}
    */
-  async renderVideo({ photos, presetId = 'royal-gold', shopDetails = {}, previewCanvas = null, onProgress = null }) {
+  async renderVideo({ photos, presetId = 'royal-gold', speedModeId = 'turbo', shopDetails = {}, previewCanvas = null, onProgress = null }) {
     if (this.isRendering) throw new Error('A render is already in progress');
     this.isRendering = true;
 
@@ -483,13 +484,20 @@ export class VideoRenderer {
     telemetry.startTimer('render');
     telemetry.update('status', 'rendering');
 
+    const speedMode = CONFIG.SPEED_MODES[speedModeId] || CONFIG.SPEED_MODES.turbo;
     const preset = PRESETS[presetId] || PRESETS['royal-gold'];
-    const slideDuration = preset.motion.slideDuration || CONFIG.VIDEO.SLIDE_DURATION_SEC;
-    const outroDuration = CONFIG.VIDEO.OUTRO_DURATION_SEC;
-    const transitionDuration = preset.motion.transitionDuration || CONFIG.VIDEO.TRANSITION_DURATION_SEC;
+
+    const targetW = speedMode.width;
+    const targetH = speedMode.height;
+    this.canvas.width = targetW;
+    this.canvas.height = targetH;
+
+    const slideDuration = speedMode.slideDuration || CONFIG.VIDEO.SLIDE_DURATION_SEC;
+    const outroDuration = speedMode.outroDuration || CONFIG.VIDEO.OUTRO_DURATION_SEC;
+    const transitionDuration = speedMode.transitionDuration || CONFIG.VIDEO.TRANSITION_DURATION_SEC;
 
     const totalDurationSec = photos.length * slideDuration + outroDuration;
-    const fps = CONFIG.VIDEO.FPS;
+    const fps = speedMode.fps || CONFIG.VIDEO.FPS;
     const totalFrames = Math.ceil(totalDurationSec * fps);
 
     const rawBytes = photos.reduce((acc, p) => acc + (p.file ? p.file.size : (p.sizeBytes || 45000) * 2.8), 0);
@@ -497,7 +505,7 @@ export class VideoRenderer {
 
     telemetry.updateMultiple({
       fps,
-      targetResolution: `${CONFIG.VIDEO.WIDTH}x${CONFIG.VIDEO.HEIGHT}`,
+      targetResolution: `${targetW}x${targetH} (${speedMode.name})`,
       imageCount: photos.length,
       rawInputBytes: Math.round(rawBytes),
       downscaledBytes: Math.round(downscaledBytes),
@@ -531,7 +539,7 @@ export class VideoRenderer {
     const recordedChunks = [];
     const mediaRecorder = new MediaRecorder(canvasStream, {
       mimeType,
-      videoBitsPerSecond: 8000000 // 8 Mbps high-quality 1080p
+      videoBitsPerSecond: speedMode.bitrate || 5000000
     });
 
     mediaRecorder.ondataavailable = (e) => {
@@ -549,18 +557,24 @@ export class VideoRenderer {
       mediaRecorder.onerror = (err) => reject(err);
     });
 
-    mediaRecorder.start(250); // gather 250ms chunks
+    mediaRecorder.start(200);
 
     // 4. Render loop across totalFrames
     const ctx = this.ctx;
     const previewCtx = previewCanvas ? previewCanvas.getContext('2d') : null;
+    const scaleX = targetW / 1080;
+    const scaleY = targetH / 1920;
 
     try {
       for (let frame = 0; frame < totalFrames; frame++) {
         const timeSec = frame / fps;
         const outroStartTime = photos.length * slideDuration;
 
-        ctx.clearRect(0, 0, CONFIG.VIDEO.WIDTH, CONFIG.VIDEO.HEIGHT);
+        ctx.clearRect(0, 0, targetW, targetH);
+
+        // Scale 1080x1920 coordinate space to target resolution
+        ctx.save();
+        ctx.scale(scaleX, scaleY);
 
         if (timeSec >= outroStartTime) {
           // --- Outro Phase ---
@@ -583,37 +597,33 @@ export class VideoRenderer {
             : 0;
 
           if (inTransition && preset.motion.transitionType === 'slide') {
-            // Slide transition: slide current left, incoming from right
             ctx.save();
-            ctx.translate(-transitionProgress * CONFIG.VIDEO.WIDTH, 0);
+            ctx.translate(-transitionProgress * 1080, 0);
             this._drawPhotoSlide(ctx, currentPhoto, photoIndex, slideProgress, preset);
             ctx.restore();
 
             ctx.save();
-            ctx.translate((1 - transitionProgress) * CONFIG.VIDEO.WIDTH, 0);
+            ctx.translate((1 - transitionProgress) * 1080, 0);
             this._drawPhotoSlide(ctx, nextPhoto, photoIndex + 1, 0, preset);
             ctx.restore();
           } else if (inTransition && preset.motion.transitionType === 'whip') {
-            // Whip cut transition
             const blurOffset = Math.sin(transitionProgress * Math.PI) * 120;
             ctx.save();
-            ctx.translate(-transitionProgress * CONFIG.VIDEO.WIDTH - blurOffset, 0);
+            ctx.translate(-transitionProgress * 1080 - blurOffset, 0);
             this._drawPhotoSlide(ctx, currentPhoto, photoIndex, slideProgress, preset);
             ctx.restore();
 
             ctx.save();
-            ctx.translate((1 - transitionProgress) * CONFIG.VIDEO.WIDTH + blurOffset, 0);
+            ctx.translate((1 - transitionProgress) * 1080 + blurOffset, 0);
             this._drawPhotoSlide(ctx, nextPhoto, photoIndex + 1, 0, preset);
             ctx.restore();
           } else if (inTransition) {
-            // Default crossfade / zoom-through
             this._drawPhotoSlide(ctx, currentPhoto, photoIndex, slideProgress, preset);
             ctx.save();
             ctx.globalAlpha = transitionProgress;
             this._drawPhotoSlide(ctx, nextPhoto, photoIndex + 1, 0, preset);
             ctx.restore();
           } else {
-            // Standard single slide draw
             this._drawPhotoSlide(ctx, currentPhoto, photoIndex, slideProgress, preset);
           }
 
@@ -624,14 +634,16 @@ export class VideoRenderer {
           this._drawPhotoOverlay(ctx, currentPhoto, slideProgress, preset);
         }
 
+        ctx.restore();
+
         // Live preview mirror on preview canvas
-        if (previewCtx && frame % 2 === 0) {
+        if (previewCtx && frame % 3 === 0) {
           previewCtx.drawImage(this.canvas, 0, 0, previewCanvas.width, previewCanvas.height);
         }
 
-        // Telemetry & progress update
+        // Telemetry & progress update (yielding every 30 frames for high performance)
         const percent = Math.min(98, Math.round((frame / totalFrames) * 95) + 5);
-        if (frame % 15 === 0 || frame === totalFrames - 1) {
+        if (frame % 30 === 0 || frame === totalFrames - 1) {
           telemetry.update('totalFramesRendered', frame + 1);
           onProgress?.({
             stage: timeSec >= outroStartTime ? 'Rendering final CTA card' : `Rendering slide ${Math.min(photos.length, Math.floor(timeSec / slideDuration) + 1)} of ${photos.length}`,
@@ -639,7 +651,7 @@ export class VideoRenderer {
             frame: frame + 1,
             totalFrames
           });
-          // Yield to browser event loop
+          // Micro-yield to keep browser responsive
           await new Promise(r => setTimeout(r, 0));
         }
       }

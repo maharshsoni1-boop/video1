@@ -16,6 +16,7 @@ import { analyzePhotos, submitFeedback } from './api.js';
 const state = {
   photos: [], // array of { id, file, img, base64, dataUrl, title, price, dominantColor, itemType, sizeBytes }
   selectedPresetId: 'royal-gold',
+  selectedSpeedMode: 'turbo',
   selectedFestivalId: 'none',
   selectedCategory: 'jewellery',
   selectedLanguage: 'en',
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initUploadHandlers();
   initStylePicker();
   initFestivalSelector();
+  initSpeedModeSelector();
   initTelemetryPanel();
   initFeedbackModal();
   initActionHandlers();
@@ -431,11 +433,28 @@ function movePhoto(fromIndex, toIndex) {
 
 function updateSummaryBar() {
   const preset = PRESETS[state.selectedPresetId];
-  const slideDuration = preset.motion.slideDuration || CONFIG.VIDEO.SLIDE_DURATION_SEC;
-  const totalDuration = Math.round(state.photos.length * slideDuration + CONFIG.VIDEO.OUTRO_DURATION_SEC);
+  const speedMode = CONFIG.SPEED_MODES[state.selectedSpeedMode] || CONFIG.SPEED_MODES.turbo;
+  const slideDuration = speedMode.slideDuration || 2.0;
+  const totalDuration = Math.round(state.photos.length * slideDuration + speedMode.outroDuration);
 
   document.getElementById('actionBarTitle').textContent = `Ready to generate ${totalDuration}-second reel`;
-  document.getElementById('actionBarSubtitle').textContent = `${preset.name} style • Procedural Web Audio • 1080x1920 30fps`;
+  document.getElementById('actionBarSubtitle').textContent = `${preset.name} style • ${speedMode.name} • Procedural Web Audio`;
+}
+
+function initSpeedModeSelector() {
+  const group = document.getElementById('speedToggleGroup');
+  if (!group) return;
+
+  const buttons = group.querySelectorAll('.speed-mode-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.selectedSpeedMode = btn.dataset.speed;
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+      updateSummaryBar();
+      telemetry.log(`Switched to render mode: ${state.selectedSpeedMode === 'turbo' ? 'Turbo (720p / ~4s)' : 'Ultra HD (1080p / ~12s)'}`);
+      showToast(`Selected ${state.selectedSpeedMode === 'turbo' ? '⚡ Turbo Mode (~4s render)' : '💎 Ultra HD (1080p)'}`, 'info');
+    });
+  });
 }
 
 // -------------------------------------------------------------
@@ -651,6 +670,7 @@ async function startReelGeneration() {
     const renderResult = await videoRenderer.renderVideo({
       photos: state.photos,
       presetId: state.selectedPresetId,
+      speedModeId: state.selectedSpeedMode,
       shopDetails: {
         shopName: state.shopName,
         city: state.city,

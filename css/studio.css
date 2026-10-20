@@ -345,6 +345,52 @@
   color: #ffb366;
 }
 
+/* Speed & Quality Toggle */
+.speed-toggle-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.speed-mode-btn {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.speed-mode-btn:hover {
+  border-color: var(--gold-border);
+  background: var(--bg-card-hover);
+}
+
+.speed-mode-btn.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(18, 20, 28, 0.8) 100%);
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.16);
+}
+
+.speed-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-white);
+}
+
+.speed-mode-btn.active .speed-title {
+  color: var(--gold-bright);
+}
+
+.speed-sub {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
 /* Sticky Primary Bottom Bar (Mobile First) */
 .sticky-action-bar {
   position: sticky;

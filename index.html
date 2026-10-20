@@ -295,6 +295,28 @@
             <!-- Populated by ui.js -->
           </div>
         </div>
+
+        <!-- Speed & Quality Mode Selector -->
+        <div style="margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="font-size: 0.95rem; font-weight: 600; color: var(--gold-bright); display: flex; align-items: center; gap: 0.5rem;">
+              <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>Render Speed & Quality</span>
+            </div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">Turbo renders in ~4s (56% lighter) • Ultra HD in ~12s</span>
+          </div>
+
+          <div class="speed-toggle-group" id="speedToggleGroup">
+            <button type="button" class="speed-mode-btn active" data-speed="turbo">
+              <span class="speed-title">⚡ Turbo Fast (720p)</span>
+              <span class="speed-sub">~4-5s Render • Recommended for Mobile</span>
+            </button>
+            <button type="button" class="speed-mode-btn" data-speed="ultra">
+              <span class="speed-title">💎 Ultra HD (1080p)</span>
+              <span class="speed-sub">~12s Render • Studio Crispness</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Sticky Primary Action Bar -->

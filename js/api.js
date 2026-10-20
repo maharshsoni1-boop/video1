@@ -17,7 +17,7 @@ export async function analyzePhotos(payload) {
 
   try {
     const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 22000); // 22s safety timeout
+    const timeout = setTimeout(() => controller.abort(), 6000); // 6s fast safety timeout
 
     const res = await fetch('/api/analyze', {
       method: 'POST',
