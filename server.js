@@ -8,6 +8,8 @@ import http from 'http';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import analyzeHandler from './api/analyze.js';
+import feedbackHandler from './api/feedback.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -58,12 +60,12 @@ const server = http.createServer(async (req, res) => {
 
   // Emulate Vercel Serverless Function: /api/analyze
   if (pathname === '/api/analyze') {
-    return handleServerless(req, res, './api/analyze.js');
+    return handleServerless(req, res, analyzeHandler);
   }
 
   // Emulate Vercel Serverless Function: /api/feedback
   if (pathname === '/api/feedback') {
-    return handleServerless(req, res, './api/feedback.js');
+    return handleServerless(req, res, feedbackHandler);
   }
 
   // Default to index.html
@@ -98,7 +100,7 @@ const server = http.createServer(async (req, res) => {
   });
 });
 
-async function handleServerless(req, res, modulePath) {
+async function handleServerless(req, res, handlerFn) {
   let body = '';
   req.on('data', chunk => { body += chunk; });
   req.on('end', async () => {
@@ -125,8 +127,7 @@ async function handleServerless(req, res, modulePath) {
         return res;
       };
 
-      const handlerModule = await import(`${modulePath}?t=${Date.now()}`);
-      await handlerModule.default(req, res);
+      await handlerFn(req, res);
     } catch (err) {
       console.error('[REELKAR SERVERLESS ERROR]', err);
       if (!res.headersSent) {
